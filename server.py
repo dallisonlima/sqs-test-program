@@ -2,8 +2,8 @@ import boto3
 import time
 
 # Configurações do AWS SQS
-fila_origem_url = 'OrigemSqsQueue'
-fila_destino_url = 'DestinoSqsQueue'
+fila_origem_url = 'Origem'
+fila_destino_url = 'Destino'
 region_name = 'us-east-1'
 
 # Configuração do cliente SQS
