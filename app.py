@@ -31,7 +31,7 @@ def receber():
 
         return jsonify({'message': f'Mensagem recebida: {corpo_mensagem}', 'messageId': message_id, 'receiptHandle': receipt_handle})
 
-    return jsonify({'message': 'Nenhuma mensagem na fila.'})
+    return jsonify({})  # Retorna uma resposta vazia se não houver mensagens
 
 @app.route('/deletar', methods=['POST'])
 def deletar():
@@ -40,6 +40,11 @@ def deletar():
 
     cliente_sqs.delete_message(QueueUrl=nome_da_fila_destino, ReceiptHandle=receipt_handle)
     return 'Mensagem excluída com sucesso.'
+
+# Rota para a página de mensagens recebidas
+@app.route('/monitor')
+def monitor():
+    return render_template('monitor.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
