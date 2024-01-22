@@ -1,8 +1,9 @@
-# app.py
 from flask import Flask, render_template, request, jsonify
+from flask_cors import CORS  # Adicione esta linha para lidar com CORS
 import boto3
 
 app = Flask(__name__)
+CORS(app)  # Ative o CORS para permitir solicitações do frontend
 
 nome_da_fila_origem = 'Origem'
 nome_da_fila_destino = 'Destino'
@@ -47,4 +48,4 @@ def monitor():
     return render_template('monitor.html')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=5001)

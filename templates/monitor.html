@@ -30,13 +30,16 @@
     </style>
 
     <script>
+        // Atualize a URL do backend conforme necessário
+        const backendURL = 'http://127.0.0.1:5001';
+
         function goToIndexPage() {
             window.location.href = '/';
         }
 
         // Função para buscar e exibir a mensagem
         function fetchAndDisplayMessage() {
-            fetch('/receber')
+            fetch(`${backendURL}/receber`)
                 .then(response => response.json())
                 .then(data => {
                     if (data.message) {
@@ -45,9 +48,11 @@
                     setTimeout(fetchAndDisplayMessage, 5000); // Buscar novamente após 5 segundos
                 })
                 .catch(error => {
+                    console.error(error);
                     setTimeout(fetchAndDisplayMessage, 5000); // Tenta novamente após 5 segundos em caso de erro
                 });
         }
+
         // Função para adicionar uma mensagem ao log
         function addLogMessage(message, messageType, messageId) {
             var logDiv = document.getElementById('monitor-view');
