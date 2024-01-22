@@ -1,6 +1,6 @@
 import boto3
 
-nome_da_fila = 'DestinoSQS'
+nome_da_fila = 'Origem'
 
 cliente_sqs = boto3.client('sqs', region_name='us-east-1')
 

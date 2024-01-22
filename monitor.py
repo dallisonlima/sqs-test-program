@@ -2,7 +2,7 @@ import boto3
 import time
 
 # Substitua 'sua_fila_url' pelo URL da sua fila SQS
-fila_url = 'DestinoSQS'
+fila_url = 'Destino'
 regiao_aws = 'us-east-1'  # Substitua pela região AWS desejada
 
 # Configuração do cliente SQS
